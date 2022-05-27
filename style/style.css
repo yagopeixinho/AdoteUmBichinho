@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .content-header {
@@ -9,10 +10,13 @@
   height: 60px;
 }
 
+
+
 /* TABLE STYLE */
 .container-table {
   display: flex;
   justify-content: center;
+  padding: 140px 0;
 }
 
 .table-orders {
@@ -20,13 +24,13 @@
 }
 
 .table-orders td {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
   padding: 20px;
 }
 
 .table-orders th {
-  border-bottom: 1px solid black;
-  padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+    padding: 20px;
 }
 
 .table-orders td {
