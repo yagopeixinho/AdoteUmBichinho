@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.content-header {
+  background-color: rgb(224, 198, 198);
+  width: 100%;
+  height: 60px;
+}
+
+/* TABLE STYLE */
+.container-table {
+  display: flex;
+  justify-content: center;
+}
+
+.table-orders {
+  border-collapse: collapse;
+}
+
+.table-orders td {
+  border-bottom: 1px solid black;
+  padding: 20px;
+}
+
+.table-orders th {
+  border-bottom: 1px solid black;
+  padding: 20px;
+}
+
+.table-orders td {
+  padding: 20px;
+}
