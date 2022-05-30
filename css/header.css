@@ -1,0 +1,32 @@
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 50px;
+  background-color: rgb(190, 161, 161);
+}
+
+#logo-header {
+  width: 190px;
+  transform: scaleX(-1);
+}
+
+.header-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.simple-btn {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+.simple-btn:hover {
+  background-color: rgb(146, 211, 140);
+}

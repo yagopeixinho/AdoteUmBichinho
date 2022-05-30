@@ -4,14 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Me envia um café!</title>
-    <link rel="stylesheet" href="style/style.css" />
+    <title>AdoteUmBichinho!</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/table.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <script src="javascript/script.js"></script>
   </head>
   <body>
     <header>
-      <div class="content-header"></div>
+      <div class="content-header">
+        <div>
+          <img src="assets/icons/logo.png" id="logo-header" />
+        </div>
+        <div class="header-btns">
+          <div>
+            <button onclick="openModal()" class="simple-btn">
+              Adicionar novo animalzinho!
+            </button>
+          </div>
+          <div>
+            <button class="simple-btn">Mais informações!</button>
+          </div>
+        </div>
+      </div>
     </header>
+
+    <div class="modal" id="modal">
+      <div>Cadastrando um novo animalzinho!</div>
+      <div>ddqijweqioq</div>
+      <div>
+        <button>Salvar</button>
+        <button onclick="closeModal()">Cancelar</button>
+      </div>
+    </div>
 
     <main>
       <div class="content-main">
@@ -37,7 +63,10 @@
                 <td>3 anos</td>
                 <td>carlosteste@gmail.com</td>
                 <td>+55 986165982</td>
-                <td><button>Editar</button> | <button>Deletar</button></td>
+                <td>
+                  <span><img src="assets/icons/edit-icon.svg" /></span>
+                  <span><img src="assets/icons/delete-icon.svg" /></span>
+                </td>
               </tr>
 
               <tr>
@@ -47,7 +76,10 @@
                 <td>2 anos</td>
                 <td>pedrinho@gmail.com</td>
                 <td>+55 98734-4545</td>
-                <td><button>Editar</button> | <button>Deletar</button></td>
+                <td>
+                  <span><img src="assets/icons/edit-icon.svg" /></span>
+                  <span><img src="assets/icons/delete-icon.svg" /></span>
+                </td>
               </tr>
             </tbody>
           </table>
