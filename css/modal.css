@@ -17,6 +17,10 @@
   z-index: 1;
 }
 
+.container-input {
+  display: flex;
+}
+
 .modal-body {
   background-color: red;
   margin: 14% auto;
