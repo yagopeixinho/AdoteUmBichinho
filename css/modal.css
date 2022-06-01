@@ -24,7 +24,7 @@
 .modal-body {
   background-color: #f9c7c2;
   margin: 4% auto;
-  width: 440px;
+  width: 800px;
 }
 .modal header {
   padding: 20px;
@@ -36,19 +36,28 @@
 }
 
 .modal-main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 20px;
+  grid-template-areas: "left right";
 }
 
 .content-input {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 280px;
 }
-.content-input label {
+.content-input-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 14px;
+}
+
+.label-input {
   padding: 8px 0;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.8);
@@ -57,6 +66,10 @@
 
 .modal footer {
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 60px 0;
+  background: #f1f1f1;
 }
 
 .input-text {
@@ -66,4 +79,29 @@
   line-height: 38px;
   padding-left: 5px;
   outline: none;
+}
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-save {
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+  background: #807182;
+  border: 1px solid transparent;
+  color: #fff;
+}
+.btn-back {
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+  background: #e0e0e0;
+  border: 1px solid transparent;
+  color: rgb(0, 0, 0);
 }

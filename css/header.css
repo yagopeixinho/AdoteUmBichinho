@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px 50px;
-  background-color: rgb(190, 161, 161);
+  background-color: #f9c7c2;
 }
 
 #logo-header {
@@ -28,5 +28,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 .simple-btn:hover {
-  background-color: rgb(126, 219, 116);
+  background-color: #807182;
+  color: white;
+  border: 1px solid white;
 }

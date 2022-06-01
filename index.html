@@ -32,88 +32,104 @@
       </div>
     </header>
 
-    <div class="modal" id="modal">
-      <div class="modal-body">
-        <header>Cadastrando um novo animalzinho local!</header>
+    <form onsubmit="create()">
+      <div class="modal" id="modal">
+        <div class="modal-body">
+          <header>Cadastrando um novo animalzinho local!</header>
 
-        <div class="modal-content">
-          <div class="modal-main">
-            <div class="content-input">
-              <label>Tutor</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Nome de quem vai adotar"
-              />
-            </div>
-            <div class="content-input">
-              <label>Animal</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Animal"
-              />
-            </div>
-            <div class="content-input">
-              <label>Raça</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Raça"
-              />
-            </div>
-            <div class="content-input">
-              <label>Idade</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Idade"
-              />
-            </div>
-            <div class="content-input">
-              <label>Email</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Email"
-              />
-            </div>
-            <div class="content-input">
-              <label>Telefone</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Telefone"
-              />
-            </div>
-            <div class="content-input">
-              <label>Bairro</label>
-              <input
-                class="input-text"
-                type="text"
-                required
-                placeholder="Bairro"
-              />
-            </div>
-            <div>
-              <input type="checkbox" required placeholder="Adotado" />
-              <label> Adotado</label>
+          <div class="modal-content">
+            <div class="modal-main">
+              <div class="content-input">
+                <label class="label-input">Tutor</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="Nome do tutor"
+                  id="tutor"
+                />
+              </div>
+              <div class="content-input">
+                <label class="label-input">Animal</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="Gato"
+                  id="animal"
+                />
+              </div>
+              <div class="content-input">
+                <label class="label-input">Raça</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="Vira-lata"
+                  id="raca"
+                />
+              </div>
+              <div class="content-input">
+                <label class="label-input">Idade</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="2"
+                  id="idade"
+                />
+              </div>
+              <div class="content-input">
+                <label class="label-input">Email</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="exemplodeemail@gmail.com"
+                  id="email-tutor"
+                />
+              </div>
+              <div class="content-input">
+                <label class="label-input">Telefone</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="(83) 99999-9999"
+                  id="telefone-tutor"
+                />
+              </div>
+              <div class="content-input">
+                <label class="label-input">Bairro</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  required
+                  placeholder="Centro"
+                  id="bairro-tutor"
+                />
+              </div>
+              <div class="content-input-check">
+                <input
+                  class="input-checkbox"
+                  type="checkbox"
+                  placeholder="Adotado"
+                  id="adotado"
+                />
+                <label class="label-input" for="adotado">
+                  O animal já foi adotado?</label
+                >
+              </div>
             </div>
           </div>
-        </div>
 
-        <footer>
-          <button onclick="closeModal()">Cancelar</button>
-          <button>Salvar</button>
-        </footer>
+          <footer>
+            <button class="btn-back" onclick="closeModal()">Cancelar</button>
+            <button class="btn-save" type="submit">Salvar</button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </form>
 
     <main>
       <div class="content-main">
