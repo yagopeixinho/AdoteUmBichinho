@@ -90,7 +90,12 @@ function createItem() {
   updateLocalStorageItens(localStorageResponse);
 }
 
+function teste() {
+
+}
+
 function updateItem(id) {
+  debugger
   const localStorageResponse = getLocalStorageItens();
 
   const tutor = document.getElementById("tutor");
