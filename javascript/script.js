@@ -9,15 +9,24 @@ function closeModal() {
 function getLocalStorageItens() {
   return JSON.parse(localStorage.getItem("localStorageAnimalList")) ?? [];
 }
+function updateLocalStorageItens(updatedItem) {
+  localStorage.setItem("localStorageAnimalList", JSON.stringify(updatedItem));
+  removeRows();
+  refreshTable();
+}
 
 function init() {
   refreshTable();
 }
 
+function removeRows() {
+  const rows = document.querySelectorAll("#table-body>tr");
+  rows.forEach((row) => row.parentNode.removeChild(row));
+}
+
 function refreshTable() {
   const localStorageResponse = getLocalStorageItens();
-
-  localStorageResponse.forEach((item) => {
+  localStorageResponse.forEach((item, index) => {
     const newRow = document.createElement("tr");
     newRow.innerHTML = `
       <tr>
@@ -30,8 +39,8 @@ function refreshTable() {
         <td>${item.bairroTutor}</td>
         <td>${item.adotado === true ? "&#10004" : "&#128078"}</td>
         <td>
-          <span><img src="assets/icons/edit-icon.svg" id="icon-edit" /></span>
-          <span><img src="assets/icons/delete-icon.svg" id="icon-delete" /></span>
+          <span><img src="assets/icons/edit-icon.svg" id="edit-${index}" class="icons-action-table" /></span>
+          <span><img src="assets/icons/delete-icon.svg" id="delete-${index}" class="icons-action-table" /></span>
         </td>
       </tr>`;
 
@@ -41,6 +50,8 @@ function refreshTable() {
 
 // CRUD
 function createItem() {
+  const localStorageResponse = getLocalStorageItens();
+
   const tutor = document.getElementById("tutor");
   const animal = document.getElementById("animal");
   const raca = document.getElementById("raca");
@@ -51,6 +62,7 @@ function createItem() {
   const adotado = document.getElementById("adotado");
 
   const newItem = {
+    id: localStorageResponse.length + 1,
     tutor: tutor.value,
     animal: animal.value,
     raca: raca.value,
@@ -61,40 +73,46 @@ function createItem() {
     adotado: adotado.checked,
   };
 
-  const localStorageResponse = getLocalStorageItens();
   localStorageResponse.push(newItem);
-
-  localStorage.setItem(
-    "localStorageAnimalList",
-    JSON.stringify(localStorageResponse)
-  );
+  updateLocalStorageItens(localStorageResponse);
 }
 
-function deletarItem() {
-  alert("deletou");
+function deleteItem(id) {
+  const localStorageResponse = getLocalStorageItens();
+  delete localStorageResponse.splice(id, 1);
+
+  updateLocalStorageItens(localStorageResponse);
+  closeModal();
 }
 
 init();
 
 // EVENTOS
-document.getElementById("icon-edit").addEventListener("click", () => {
-  openModal();
-});
+document.getElementById("table-body").addEventListener("click", (e) => {
+  const [action, id] = e.target.id.split("-");
 
-document.getElementById("icon-delete").addEventListener("click", () => {
-  document
-    .getElementById("confirmation-dialog")
-    .classList.add("confirmation-dialog-active");
-});
-
-document
-  .getElementById("btn-refuse-confirmation-dialog")
-  .addEventListener("click", () => {
+  if (action === "edit") {
+    // Ainda não existe o método de editar
+  } else if (action === "delete") {
     document
       .getElementById("confirmation-dialog")
-      .classList.remove("confirmation-dialog-active");
-  });
+      .classList.add("confirmation-dialog-active");
 
-document
-  .getElementById("btn-confirm-confirmation-dialog")
-  .addEventListener("click", deletarItem);
+    document
+      .getElementById("btn-confirm-confirmation-dialog")
+      .addEventListener("click", () => {
+        deleteItem(id);
+        document
+          .getElementById("confirmation-dialog")
+          .classList.remove("confirmation-dialog-active");
+      });
+
+    document
+      .getElementById("btn-refuse-confirmation-dialog")
+      .addEventListener("click", () => {
+        document
+          .getElementById("confirmation-dialog")
+          .classList.remove("confirmation-dialog-active");
+      });
+  }
+});
