@@ -62,6 +62,7 @@ function refreshTable() {
 
 // CRUD
 function createItem() {
+  debugger
   const localStorageResponse = getLocalStorageItens();
 
   const tutor = document.getElementById("tutor");
