@@ -77,6 +77,33 @@ function createItem() {
   updateLocalStorageItens(localStorageResponse);
 }
 
+function updateItem(id) {
+  const localStorageResponse = getLocalStorageItens();
+
+  const tutor = document.getElementById("tutor");
+  const animal = document.getElementById("animal");
+  const raca = document.getElementById("raca");
+  const idade = document.getElementById("idade");
+  const emailTutor = document.getElementById("email-tutor");
+  const telefoneTutor = document.getElementById("telefone-tutor");
+  const bairroTutor = document.getElementById("bairro-tutor");
+  const adotado = document.getElementById("adotado");
+
+  const newItem = {
+    tutor: tutor.value,
+    animal: animal.value,
+    raca: raca.value,
+    idade: idade.value,
+    emailTutor: emailTutor.value,
+    telefoneTutor: telefoneTutor.value,
+    bairroTutor: bairroTutor.value,
+    adotado: adotado.checked,
+  };
+
+  localStorageResponse[id] = newItem;
+  updateLocalStorageItens(localStorageResponse);
+}
+
 function deleteItem(id) {
   const localStorageResponse = getLocalStorageItens();
   delete localStorageResponse.splice(id, 1);
@@ -92,7 +119,25 @@ document.getElementById("table-body").addEventListener("click", (e) => {
   const [action, id] = e.target.id.split("-");
 
   if (action === "edit") {
-    // Ainda não existe o método de editar
+    openModal();
+    const localStorageResponse = getLocalStorageItens();
+    const itemToUpdate = localStorageResponse[id];
+
+    document.getElementById("tutor").value = itemToUpdate.tutor;
+    document.getElementById("animal").value = itemToUpdate.animal;
+    document.getElementById("raca").value = itemToUpdate.raca;
+    document.getElementById("idade").value = itemToUpdate.idade;
+    document.getElementById("email-tutor").value = itemToUpdate.emailTutor;
+    document.getElementById("telefone-tutor").value =
+      itemToUpdate.telefoneTutor;
+    document.getElementById("bairro-tutor").value = itemToUpdate.bairroTutor;
+    document.getElementById("adotado").checked = itemToUpdate.adotado;
+
+    const botaoEditar = document.getElementById("btn-save-modal");
+    botaoEditar.textContent = "Confirmar alterações";
+    botaoEditar.addEventListener("click", () => {
+      updateItem(id);
+    });
   } else if (action === "delete") {
     document
       .getElementById("confirmation-dialog")

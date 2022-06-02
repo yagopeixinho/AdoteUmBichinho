@@ -98,9 +98,8 @@
 }
 
 .btn-save {
-  height: 38px;
   line-height: 38px;
-  width: 100px;
+  padding: 0px 10px;
   border-radius: 19px;
   font-family: "Montserrat", sans-serif;
   background: #807182;
@@ -108,9 +107,8 @@
   color: #fff;
 }
 .btn-back {
-  height: 38px;
   line-height: 38px;
-  width: 100px;
+  padding: 0px 10px;
   border-radius: 19px;
   font-family: "Montserrat", sans-serif;
   background: #e0e0e0;

@@ -33,7 +33,7 @@
     </header>
 
     <div class="modal" id="modal">
-      <form onsubmit="createItem()">
+      <form onsubmit="formFunction()">
         <div class="modal-body">
           <header>Cadastrando um novo animalzinho local!</header>
 
@@ -135,7 +135,7 @@
             <button class="btn-back" onclick="closeModal()" type="button">
               Cancelar
             </button>
-            <button class="btn-save" type="submit">Salvar</button>
+            <button class="btn-save" type="submit" id="btn-save-modal">Salvar</button>
           </footer>
         </div>
       </form>
