@@ -4,6 +4,7 @@ function openModal() {
 
 function closeModal() {
   document.getElementById("modal").classList.remove("modal-active");
+  clearModalFields();
 }
 
 function getLocalStorageItens() {
@@ -22,6 +23,17 @@ function init() {
 function removeRows() {
   const rows = document.querySelectorAll("#table-body>tr");
   rows.forEach((row) => row.parentNode.removeChild(row));
+}
+
+function clearModalFields() {
+  document.getElementById("tutor").value = "";
+  document.getElementById("animal").value = "";
+  document.getElementById("raca").value = "";
+  document.getElementById("idade").value = "";
+  document.getElementById("email-tutor").value = "";
+  document.getElementById("telefone-tutor").value = "";
+  document.getElementById("bairro-tutor").value = "";
+  document.getElementById("adotado").checked = false;
 }
 
 function refreshTable() {
