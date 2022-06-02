@@ -10,7 +10,37 @@ function getLocalStorageItens() {
   return JSON.parse(localStorage.getItem("localStorageAnimalList")) ?? [];
 }
 
-function create() {
+function init() {
+  refreshTable();
+}
+
+function refreshTable() {
+  const localStorageResponse = getLocalStorageItens();
+
+  localStorageResponse.forEach((item) => {
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+      <tr>
+        <td>${item.tutor}</td>
+        <td>${item.animal}</td>
+        <td>${item.raca}</td>
+        <td>${item.idade}</td>
+        <td>${item.emailTutor}</td>
+        <td>${item.telefoneTutor}</td>
+        <td>${item.bairroTutor}</td>
+        <td>${item.adotado === true ? "&#10004" : "&#128078"}</td>
+        <td>
+          <span><img src="assets/icons/edit-icon.svg" id="icon-edit" /></span>
+          <span><img src="assets/icons/delete-icon.svg" id="icon-delete" /></span>
+        </td>
+      </tr>`;
+
+    document.getElementById("table-body").appendChild(newRow);
+  });
+}
+
+// CRUD
+function createItem() {
   const tutor = document.getElementById("tutor");
   const animal = document.getElementById("animal");
   const raca = document.getElementById("raca");
@@ -39,3 +69,32 @@ function create() {
     JSON.stringify(localStorageResponse)
   );
 }
+
+function deletarItem() {
+  alert("deletou");
+}
+
+init();
+
+// EVENTOS
+document.getElementById("icon-edit").addEventListener("click", () => {
+  openModal();
+});
+
+document.getElementById("icon-delete").addEventListener("click", () => {
+  document
+    .getElementById("confirmation-dialog")
+    .classList.add("confirmation-dialog-active");
+});
+
+document
+  .getElementById("btn-refuse-confirmation-dialog")
+  .addEventListener("click", () => {
+    document
+      .getElementById("confirmation-dialog")
+      .classList.remove("confirmation-dialog-active");
+  });
+
+document
+  .getElementById("btn-confirm-confirmation-dialog")
+  .addEventListener("click", deletarItem);

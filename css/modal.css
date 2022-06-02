@@ -105,3 +105,11 @@
   border: 1px solid transparent;
   color: rgb(0, 0, 0);
 }
+
+
+#icon-edit {
+  cursor: pointer;
+}
+#icon-delete {
+  cursor: pointer;
+}

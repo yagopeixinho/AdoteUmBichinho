@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/table.css" />
     <link rel="stylesheet" href="css/header.css" />
-    <script src="javascript/script.js"></script>
+    <link rel="stylesheet" href="css/confirmationDialog.css" />
     <link rel="icon" type="image/x-icon" href="assets/icons/logo.png" />
   </head>
 
@@ -32,8 +32,8 @@
       </div>
     </header>
 
-    <form onsubmit="create()">
-      <div class="modal" id="modal">
+    <div class="modal" id="modal">
+      <form onsubmit="createItem()">
         <div class="modal-body">
           <header>Cadastrando um novo animalzinho local!</header>
 
@@ -47,6 +47,7 @@
                   required
                   placeholder="Nome do tutor"
                   id="tutor"
+                  name="tutor"
                 />
               </div>
               <div class="content-input">
@@ -57,6 +58,7 @@
                   required
                   placeholder="Gato"
                   id="animal"
+                  name="animal"
                 />
               </div>
               <div class="content-input">
@@ -67,6 +69,7 @@
                   required
                   placeholder="Vira-lata"
                   id="raca"
+                  name="raca"
                 />
               </div>
               <div class="content-input">
@@ -77,6 +80,7 @@
                   required
                   placeholder="2"
                   id="idade"
+                  name="idade"
                 />
               </div>
               <div class="content-input">
@@ -87,6 +91,7 @@
                   required
                   placeholder="exemplodeemail@gmail.com"
                   id="email-tutor"
+                  name="email-tutor"
                 />
               </div>
               <div class="content-input">
@@ -97,6 +102,7 @@
                   required
                   placeholder="(83) 99999-9999"
                   id="telefone-tutor"
+                  name="telefone-tutor"
                 />
               </div>
               <div class="content-input">
@@ -107,6 +113,7 @@
                   required
                   placeholder="Centro"
                   id="bairro-tutor"
+                  name="bairro-tutor"
                 />
               </div>
               <div class="content-input-check">
@@ -115,6 +122,7 @@
                   type="checkbox"
                   placeholder="Adotado"
                   id="adotado"
+                  name="adotado"
                 />
                 <label class="label-input" for="adotado">
                   O animal já foi adotado?</label
@@ -124,12 +132,41 @@
           </div>
 
           <footer>
-            <button class="btn-back" onclick="closeModal()">Cancelar</button>
+            <button class="btn-back" onclick="closeModal()" type="button">
+              Cancelar
+            </button>
             <button class="btn-save" type="submit">Salvar</button>
           </footer>
         </div>
+      </form>
+    </div>
+
+    <div id="confirmation-dialog" class="confirmation-dialog">
+      <div class="confirmation-dialog-container">
+        <div class="confirmation-dialog-title">
+          Deseja mesmo excluir esse item?
+        </div>
+        <hr class="confirmation-dialog-hr" />
+        <div class="confirmation-dialog-btn-container">
+          <div>
+            <button
+              class="simple-btn btn-simple-confirmation-dialog-confirm"
+              id="btn-confirm-confirmation-dialog"
+            >
+              Sim
+            </button>
+          </div>
+          <div>
+            <button
+              class="simple-btn btn-simple-confirmation-dialog-refuse"
+              id="btn-refuse-confirmation-dialog"
+            >
+              Não
+            </button>
+          </div>
+        </div>
       </div>
-    </form>
+    </div>
 
     <main>
       <div class="content-main">
@@ -149,42 +186,16 @@
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <td>Carlos</td>
-                <td>Gato</td>
-                <td>Vira-lata</td>
-                <td>3 anos</td>
-                <td>carlosteste@gmail.com</td>
-                <td>+55 986165982</td>
-                <td>Centro</td>
-                <td></td>
-                <td>
-                  <span><img src="assets/icons/edit-icon.svg" /></span>
-                  <span><img src="assets/icons/delete-icon.svg" /></span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Pedro</td>
-                <td>Cachorro</td>
-                <td>Vira-lata</td>
-                <td>2 anos</td>
-                <td>pedrinho@gmail.com</td>
-                <td>+55 98734-4545</td>
-                <td>Torre</td>
-                <td></td>
-                <td>
-                  <span><img src="assets/icons/edit-icon.svg" /></span>
-                  <span><img src="assets/icons/delete-icon.svg" /></span>
-                </td>
-              </tr>
+            <tbody id="table-body">
+              <!-- TABELA SENDO CRIADA AUTOMATICAMENTE PELO JAVASCRIPT -->
             </tbody>
           </table>
         </div>
       </div>
     </main>
 
-    <footer></footer>
+    <footer>
+      <script src="javascript/script.js"></script>
+    </footer>
   </body>
 </html>
