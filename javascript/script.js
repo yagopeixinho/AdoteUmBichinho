@@ -179,3 +179,9 @@ document.getElementById("table-body").addEventListener("click", (e) => {
       });
   }
 });
+
+document.getElementById("btn-create").addEventListener("click", () => {
+  document.getElementById("btn-save-modal").addEventListener("click", () => {
+    createItem();
+  })
+})
