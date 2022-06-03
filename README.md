@@ -5,7 +5,6 @@
 ---
 
 <br>
-<br>
 
 <div align="center">
 
@@ -44,7 +43,7 @@ Esse repositório tem como objetivo a prática do desenvolvimento em JavaScript,
 
 </div>
 
-- Esse projeto não possui responsividade e foi desenvolvido exclusivamente para dispositivos desktop. É fortemente recomendado uma tela superior a 800px de largura.    
+- Esse projeto não possui responsividade e foi desenvolvido exclusivamente para dispositivos desktop. É fortemente recomendado uma tela superior a 800px de largura.
 
 <br>
 

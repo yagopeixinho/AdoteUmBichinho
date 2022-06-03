@@ -33,10 +33,9 @@ function clearModalFields() {
   document.getElementById("adotado").checked = false;
 }
 
-
-
 // ============ CRUD (CREATE, READ, UPDATE, DELETE) ============
 function createItem() {
+  debugger;
   const localStorageResponse = getLocalStorageItens();
 
   const tutor = document.getElementById("tutor");
@@ -116,10 +115,14 @@ function updateItem(id) {
 }
 
 function deleteItem(id) {
+  debugger;
   const localStorageResponse = getLocalStorageItens();
   delete localStorageResponse.splice(id, 1);
 
   updateLocalStorageItens(localStorageResponse);
+  document
+    .getElementById("confirmation-dialog")
+    .classList.remove("confirmation-dialog-active");
   closeModal();
 }
 
@@ -130,11 +133,9 @@ function init() {
 
 init();
 
-
-
 // ============ EVENTOS ============
 document.getElementById("table-body").addEventListener("click", (e) => {
-  const [action, id] = e.target.id.split("-");
+  [action, id] = e.target.id.split("-");
 
   if (action === "edit") {
     openModal();
@@ -157,18 +158,10 @@ document.getElementById("table-body").addEventListener("click", (e) => {
       updateItem(id);
     });
   } else if (action === "delete") {
+    debugger;
     document
       .getElementById("confirmation-dialog")
       .classList.add("confirmation-dialog-active");
-
-    document
-      .getElementById("btn-confirm-confirmation-dialog")
-      .addEventListener("click", () => {
-        deleteItem(id);
-        document
-          .getElementById("confirmation-dialog")
-          .classList.remove("confirmation-dialog-active");
-      });
 
     document
       .getElementById("btn-refuse-confirmation-dialog")
@@ -185,3 +178,9 @@ document.getElementById("btn-create").addEventListener("click", () => {
     createItem();
   });
 });
+
+document
+  .getElementById("btn-confirm-confirmation-dialog")
+  .addEventListener("click", () => {
+    deleteItem(id);
+  });
