@@ -1,3 +1,4 @@
+// ============ FUNÇÕES GERAIS ============
 function openModal() {
   document.getElementById("modal").classList.add("modal-active");
 }
@@ -13,10 +14,6 @@ function getLocalStorageItens() {
 function updateLocalStorageItens(updatedItem) {
   localStorage.setItem("localStorageAnimalList", JSON.stringify(updatedItem));
   removeRows();
-  refreshTable();
-}
-
-function init() {
   refreshTable();
 }
 
@@ -36,33 +33,10 @@ function clearModalFields() {
   document.getElementById("adotado").checked = false;
 }
 
-function refreshTable() {
-  const localStorageResponse = getLocalStorageItens();
-  localStorageResponse.forEach((item, index) => {
-    const newRow = document.createElement("tr");
-    newRow.innerHTML = `
-      <tr>
-        <td>${item.tutor}</td>
-        <td>${item.animal}</td>
-        <td>${item.raca}</td>
-        <td>${item.idade}</td>
-        <td>${item.emailTutor}</td>
-        <td>${item.telefoneTutor}</td>
-        <td>${item.bairroTutor}</td>
-        <td>${item.adotado === true ? "&#10004" : "&#128078"}</td>
-        <td>
-          <span><img src="assets/icons/edit-icon.svg" id="edit-${index}" class="icons-action-table" /></span>
-          <span><img src="assets/icons/delete-icon.svg" id="delete-${index}" class="icons-action-table" /></span>
-        </td>
-      </tr>`;
 
-    document.getElementById("table-body").appendChild(newRow);
-  });
-}
 
-// CRUD
+// ============ CRUD (CREATE, READ, UPDATE, DELETE) ============
 function createItem() {
-  debugger
   const localStorageResponse = getLocalStorageItens();
 
   const tutor = document.getElementById("tutor");
@@ -90,12 +64,31 @@ function createItem() {
   updateLocalStorageItens(localStorageResponse);
 }
 
-function teste() {
+function refreshTable() {
+  const localStorageResponse = getLocalStorageItens();
+  localStorageResponse.forEach((item, index) => {
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+      <tr>
+        <td>${item.tutor}</td>
+        <td>${item.animal}</td>
+        <td>${item.raca}</td>
+        <td>${item.idade}</td>
+        <td>${item.emailTutor}</td>
+        <td>${item.telefoneTutor}</td>
+        <td>${item.bairroTutor}</td>
+        <td>${item.adotado === true ? "&#10004" : "Em progresso..."}</td>
+        <td>
+          <span><img src="assets/icons/edit-icon.svg" id="edit-${index}" class="icons-action-table" /></span>
+          <span><img src="assets/icons/delete-icon.svg" id="delete-${index}" class="icons-action-table" /></span>
+        </td>
+      </tr>`;
 
+    document.getElementById("table-body").appendChild(newRow);
+  });
 }
 
 function updateItem(id) {
-  debugger
   const localStorageResponse = getLocalStorageItens();
 
   const tutor = document.getElementById("tutor");
@@ -107,7 +100,7 @@ function updateItem(id) {
   const bairroTutor = document.getElementById("bairro-tutor");
   const adotado = document.getElementById("adotado");
 
-  const newItem = {
+  const updatedItem = {
     tutor: tutor.value,
     animal: animal.value,
     raca: raca.value,
@@ -118,7 +111,7 @@ function updateItem(id) {
     adotado: adotado.checked,
   };
 
-  localStorageResponse[id] = newItem;
+  localStorageResponse[id] = updatedItem;
   updateLocalStorageItens(localStorageResponse);
 }
 
@@ -130,9 +123,16 @@ function deleteItem(id) {
   closeModal();
 }
 
+function init() {
+  removeRows();
+  refreshTable();
+}
+
 init();
 
-// EVENTOS
+
+
+// ============ EVENTOS ============
 document.getElementById("table-body").addEventListener("click", (e) => {
   const [action, id] = e.target.id.split("-");
 
@@ -183,5 +183,5 @@ document.getElementById("table-body").addEventListener("click", (e) => {
 document.getElementById("btn-create").addEventListener("click", () => {
   document.getElementById("btn-save-modal").addEventListener("click", () => {
     createItem();
-  })
-})
+  });
+});

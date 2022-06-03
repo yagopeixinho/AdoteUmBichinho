@@ -10,23 +10,31 @@
     <link rel="stylesheet" href="css/table.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/confirmationDialog.css" />
-    <link rel="icon" type="image/x-icon" href="assets/icons/logo.png" />
+    <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
   </head>
 
   <body>
     <header>
       <div class="content-header">
-        <div>
+        <div class="logo-container">
           <img src="assets/icons/logo.png" id="logo-header" />
+          <span class="slogan"> Faça um amigo e transforme o seu futuro! </span>
         </div>
+
         <div class="header-btns">
           <div>
-            <button onclick="openModal()" class="simple-btn" id="btn-create">
+            <button
+              onclick="openModal()"
+              class="main-btn-white"
+              id="btn-create"
+            >
               Adicionar novo animalzinho!
             </button>
           </div>
           <div>
-            <button class="simple-btn">Mais informações!</button>
+            <button class="main-btn-black">Mais informações!</button>
           </div>
         </div>
       </div>
@@ -132,10 +140,21 @@
           </div>
 
           <footer>
-            <button class="btn-back" onclick="closeModal()" type="button">
-              Cancelar
-            </button>
-            <button class="btn-save" type="submit" id="btn-save-modal">Salvar</button>
+            <div>
+              <button
+                class="main-btn-white"
+                onclick="closeModal()"
+                type="button"
+              >
+                Cancelar
+              </button>
+            </div>
+
+            <div>
+              <button class="main-btn-black" type="submit" id="btn-save-modal">
+                Salvar
+              </button>
+            </div>
           </footer>
         </div>
       </form>
@@ -148,19 +167,13 @@
         </div>
         <hr class="confirmation-dialog-hr" />
         <div class="confirmation-dialog-btn-container">
-          <div>
-            <button
-              class="btn-simple-confirmation-dialog-confirm"
-              id="btn-confirm-confirmation-dialog"
-            >
+          <div class="confirmation-dialog-individual-btn-container">
+            <button class="main-btn-white" id="btn-confirm-confirmation-dialog">
               Sim
             </button>
           </div>
-          <div>
-            <button
-              class="btn-simple-confirmation-dialog-refuse"
-              id="btn-refuse-confirmation-dialog"
-            >
+          <div class="confirmation-dialog-individual-btn-container">
+            <button class="main-btn-black" id="btn-refuse-confirmation-dialog">
               Não
             </button>
           </div>

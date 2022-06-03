@@ -1,0 +1,31 @@
+.main-btn-black {
+  width: 100%;
+  transition: 0.2s;
+  line-height: 38px;
+  padding: 0px 10px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+  background: #807182;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.main-btn-white {
+  width: 100%;
+  transition: 0.2s;
+  line-height: 38px;
+  padding: 0px 10px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+  background: #e0e0e0;
+  border: 1px solid transparent;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+/* Hovers */
+.main-btn-white:hover,
+.main-btn-black:hover {
+  opacity: 84%;
+}

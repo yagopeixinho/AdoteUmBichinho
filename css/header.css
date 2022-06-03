@@ -3,32 +3,27 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px 50px;
-  background-color: #f9c7c2;
+  background: rgba(247, 177, 171, 1);
+}
+
+.slogan {
+  padding: 8px 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #logo-header {
   width: 190px;
-  transform: scaleX(-1);
 }
 
 .header-btns {
   display: flex;
   gap: 8px;
-}
-
-.simple-btn {
-  transition: 0.4s;
-  line-height: 38px;
-  border-radius: 19px;
-  font-family: "Montserrat", sans-serif;
-  background: #e0e0e0;
-  border: 1px solid transparent;
-  color: rgb(0, 0, 0);
-  padding: 22px;
-  font-size: 18px;
-}
-.simple-btn:hover {
-  background-color: #807182;
-  color: white;
-  border: 1px solid white;
 }

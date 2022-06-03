@@ -10,16 +10,6 @@
   z-index: -1;
 }
 
-@keyframes modal-opening {
-  from {
-    opacity: 0%;
-  }
-
-  to {
-    opacity: 100%;
-  }
-}
-
 .modal-active {
   display: block !important;
   width: 100%;
@@ -33,11 +23,6 @@
   display: flex;
 }
 
-.modal-body {
-  background-color: #f9c7c2;
-  margin: 4% auto;
-  width: 800px;
-}
 .modal header {
   padding: 20px;
   color: rgba(0, 0, 0, 0.8);
@@ -45,6 +30,12 @@
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   text-align: center;
+}
+
+.modal-body {
+  background-color: #f9c7c2;
+  margin: 4% auto;
+  width: 800px;
 }
 
 .modal-main {
@@ -61,6 +52,7 @@
   flex-direction: column;
   width: 280px;
 }
+
 .content-input-check {
   display: flex;
   align-items: center;
@@ -92,6 +84,11 @@
   padding-left: 5px;
   outline: none;
 }
+
+.input-text::placeholder {
+  opacity: 40%;
+}
+
 .checkbox {
   width: 20px;
   height: 20px;
@@ -106,6 +103,7 @@
   border: 1px solid transparent;
   color: #fff;
 }
+
 .btn-back {
   line-height: 38px;
   padding: 0px 10px;
@@ -118,4 +116,15 @@
 
 .icons-action-table {
   cursor: pointer;
+}
+
+/*============ Keyframes ============*/
+@keyframes modal-opening {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
 }

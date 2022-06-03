@@ -46,34 +46,6 @@
   justify-content: space-around;
 }
 
-.btn-simple-confirmation-dialog-confirm {
-  transition: 0.4s;
-  line-height: 38px;
+.confirmation-dialog-individual-btn-container {
   width: 140px;
-  font-size: 16px;
-  border-radius: 19px;
-  font-family: "Montserrat", sans-serif;
-  background: #e0e0e0;
-  border: 1px solid transparent;
-  color: black;
-}
-.btn-simple-confirmation-dialog-confirm:hover {
-  background-color: rgb(197, 94, 94);
-  border-radius: 30px;
-}
-
-.btn-simple-confirmation-dialog-refuse {
-  transition: 0.4s;
-  line-height: 38px;
-  width: 140px;
-  font-size: 16px;
-  border-radius: 19px;
-  font-family: "Montserrat", sans-serif;
-  background: #807182;
-  border: 1px solid transparent;
-  color: #fff;
-}
-.btn-simple-confirmation-dialog-refuse:hover {
-  background-color: rgb(95, 175, 95);
-  border-radius: 30px;
 }
