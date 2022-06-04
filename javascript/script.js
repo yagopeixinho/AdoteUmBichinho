@@ -11,6 +11,7 @@ function closeModal() {
 function getLocalStorageItens() {
   return JSON.parse(localStorage.getItem("localStorageAnimalList")) ?? [];
 }
+
 function updateLocalStorageItens(updatedItem) {
   localStorage.setItem("localStorageAnimalList", JSON.stringify(updatedItem));
   removeRows();
@@ -33,34 +34,29 @@ function clearModalFields() {
   document.getElementById("adotado").checked = false;
 }
 
+function verifyFields() {
+  return document.getElementById("form-animal-modal").reportValidity();
+}
+
 // ============ CRUD (CREATE, READ, UPDATE, DELETE) ============
 function createItem() {
-  debugger;
   const localStorageResponse = getLocalStorageItens();
 
-  const tutor = document.getElementById("tutor");
-  const animal = document.getElementById("animal");
-  const raca = document.getElementById("raca");
-  const idade = document.getElementById("idade");
-  const emailTutor = document.getElementById("email-tutor");
-  const telefoneTutor = document.getElementById("telefone-tutor");
-  const bairroTutor = document.getElementById("bairro-tutor");
-  const adotado = document.getElementById("adotado");
-
   const newItem = {
-    id: localStorageResponse.length + 1,
-    tutor: tutor.value,
-    animal: animal.value,
-    raca: raca.value,
-    idade: idade.value,
-    emailTutor: emailTutor.value,
-    telefoneTutor: telefoneTutor.value,
-    bairroTutor: bairroTutor.value,
-    adotado: adotado.checked,
+    tutor: document.getElementById("tutor").value,
+    animal: document.getElementById("animal").value,
+    raca: document.getElementById("raca").value,
+    idade: document.getElementById("idade").value,
+    emailTutor: document.getElementById("email-tutor").value,
+    telefoneTutor: document.getElementById("telefone-tutor").value,
+    bairroTutor: document.getElementById("bairro-tutor").value,
+    adotado: document.getElementById("adotado").checked,
   };
 
-  localStorageResponse.push(newItem);
-  updateLocalStorageItens(localStorageResponse);
+  if (verifyFields()) {
+    localStorageResponse.push(newItem);
+    updateLocalStorageItens(localStorageResponse);
+  }
 }
 
 function refreshTable() {
@@ -90,28 +86,21 @@ function refreshTable() {
 function updateItem(id) {
   const localStorageResponse = getLocalStorageItens();
 
-  const tutor = document.getElementById("tutor");
-  const animal = document.getElementById("animal");
-  const raca = document.getElementById("raca");
-  const idade = document.getElementById("idade");
-  const emailTutor = document.getElementById("email-tutor");
-  const telefoneTutor = document.getElementById("telefone-tutor");
-  const bairroTutor = document.getElementById("bairro-tutor");
-  const adotado = document.getElementById("adotado");
-
   const updatedItem = {
-    tutor: tutor.value,
-    animal: animal.value,
-    raca: raca.value,
-    idade: idade.value,
-    emailTutor: emailTutor.value,
-    telefoneTutor: telefoneTutor.value,
-    bairroTutor: bairroTutor.value,
-    adotado: adotado.checked,
+    tutor: document.getElementById("tutor").value,
+    animal: document.getElementById("animal").value,
+    raca: document.getElementById("raca").value,
+    idade: document.getElementById("idade").value,
+    emailTutor: document.getElementById("email-tutor").value,
+    telefoneTutor: document.getElementById("telefone-tutor").value,
+    bairroTutor: document.getElementById("bairro-tutor").value,
+    adotado: document.getElementById("adotado").checked,
   };
 
-  localStorageResponse[id] = updatedItem;
-  updateLocalStorageItens(localStorageResponse);
+  if (verifyFields()) {
+    localStorageResponse[id] = updatedItem;
+    updateLocalStorageItens(localStorageResponse);
+  }
 }
 
 function deleteItem(id) {
